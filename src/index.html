@@ -25,28 +25,34 @@
         <div class="expense-add">
           <p class="expense-name">ADD EXPENSE</p>
           <form id="expenseForm" class="expense-add-container">
-            <label class="sr-only" for="expenseName">Expense name</label>
-            <input
-              id="expenseName"
-              name="expenseName"
-              class="expense"
-              type="text"
-              placeholder="e.g. Lunch"
-              autocomplete="off"
-              required
-            />
-            <label class="sr-only" for="expenseAmount">Expense amount</label>
-            <input
-              id="expenseAmount"
-              name="expenseAmount"
-              class="amount"
-              type="number"
-              placeholder="Amount"
-              min="0"
-              step="0.01"
-              inputmode="decimal"
-              required
-            />
+            <div id="inputGroup">
+              <label class="sr-only" for="expenseName">Expense name</label>
+              <input
+                id="expenseName"
+                name="expenseName"
+                class="expense"
+                type="text"
+                placeholder="e.g. Lunch"
+                autocomplete="off"
+                required
+              />
+              <span class="error"></span>
+            </div>
+            <div id="inputGroup">
+              <label class="sr-only" for="expenseAmount">Expense amount</label>
+              <input
+                id="expenseAmount"
+                name="expenseAmount"
+                class="amount"
+                type="number"
+                placeholder="Amount"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+                required
+              />
+              <span class="error"></span>
+            </div>
             <button class="expense-add-btn" type="submit">Add</button>
           </form>
         </div>
