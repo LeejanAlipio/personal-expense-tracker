@@ -46,10 +46,6 @@ class ExpenseTracker {
   getExpenses() {
     return [...this.expenses];
   }
-
-  getTotalAmount() {
-    return this.expenses.reduce((sum, amount) => sum + amount, 0);
-  }
 }
 
 export const expenseTracker = new ExpenseTracker();
