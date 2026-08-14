@@ -32,7 +32,7 @@ class ExpenseTracker {
   }
 
   editExpense(id, { name, amount }) {
-    const expense = this.expenses.find(expense => expense.id === id);
+    const expense = this.expenses.find((expense) => expense.id === id);
 
     if (expense) {
       expense.name = name || expense.name;

@@ -1,46 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Expense Tracker</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <div class="header">
-            <h1>Daily Expenses</h1>
-            <p>Track what you spend today</p>
+      <div class="header">
+        <h1>Daily Expenses</h1>
+        <p>Track what you spend today</p>
+      </div>
+      <div class="expense-container">
+        <div class="expense-calculate">
+          <div class="calculate total-card">
+            <p class="calculate-name">TOTAL</p>
+            <p id="totalValue" class="summary-value total-value">$0.00</p>
+          </div>
+          <div class="calculate average-card">
+            <p class="calculate-name">AVERAGE</p>
+            <p id="averageValue" class="summary-value average-value">$0.00</p>
+          </div>
         </div>
-        <div class="expense-container">
-            <div class="expense-calculate">
-                <div class="calculate total-card">
-                    <p class="calculate-name">TOTAL</p>
-                    <p id="totalValue" class="summary-value total-value">$0.00</p>
-                </div>
-                <div class="calculate average-card">
-                    <p class="calculate-name">AVERAGE</p>
-                    <p id="averageValue" class="summary-value average-value">$0.00</p>
-                </div>                
-            </div>
-            <div class="expense-add">
-                <p class="expense-name">ADD EXPENSE</p>
-                <form id="expenseForm" class="expense-add-container">
-                    <label class="sr-only" for="expenseName">Expense name</label>
-                    <input id="expenseName" name="expenseName" class="expense" type="text" placeholder="e.g. Lunch" autocomplete="off" required>
-                    <label class="sr-only" for="expenseAmount">Expense amount</label>
-                    <input id="expenseAmount" name="expenseAmount" class="amount" type="number" placeholder="Amount" min="0" step="0.01" inputmode="decimal" required>
-                    <button class="expense-add-btn" type="submit">Add</button>
-                </form>
-            </div>
-            <div class="expense-tracker">
-                <div class="tracker-top">
-                    <p>TODAY'S EXPENSES</p>
-                    <button id="clearExpensesBtn" class="tracker-btn" type="button">Clear All</button>
-                </div>
-                <div id="expensePlaceholder" class="tracker-placeholder">No expenses yet - add one above</div>
-                <ul id="expenseList" class="expense-list" aria-live="polite"></ul>
-            </div>
+        <div class="expense-add">
+          <p class="expense-name">ADD EXPENSE</p>
+          <form id="expenseForm" class="expense-add-container">
+            <label class="sr-only" for="expenseName">Expense name</label>
+            <input
+              id="expenseName"
+              name="expenseName"
+              class="expense"
+              type="text"
+              placeholder="e.g. Lunch"
+              autocomplete="off"
+              required
+            />
+            <label class="sr-only" for="expenseAmount">Expense amount</label>
+            <input
+              id="expenseAmount"
+              name="expenseAmount"
+              class="amount"
+              type="number"
+              placeholder="Amount"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              required
+            />
+            <button class="expense-add-btn" type="submit">Add</button>
+          </form>
         </div>
+        <div class="expense-tracker">
+          <div class="tracker-top">
+            <p>TODAY'S EXPENSES</p>
+            <button id="clearExpensesBtn" class="tracker-btn" type="button">
+              Clear All
+            </button>
+          </div>
+          <div id="expensePlaceholder" class="tracker-placeholder">
+            No expenses yet - add one above
+          </div>
+          <ul id="expenseList" class="expense-list" aria-live="polite"></ul>
+        </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
