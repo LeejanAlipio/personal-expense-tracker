@@ -13,7 +13,7 @@ const element = {
   expenseAmountError: document.querySelector('#amount-error'),
   clearExpensesBtn: document.querySelector('#clearExpensesBtn'),
   expensePlaceholder: document.querySelector('#expensePlaceholder'),
-  expenseList: document.querySelector('#expenseList')
+  expenseList: document.querySelector('#expenseList'),
 };
 
 export function initValidation() {
@@ -26,10 +26,22 @@ export function initValidation() {
 
     if (!element.expenseForm.checkValidity()) {
       event.preventDefault();
+    } else {
+      event.preventDefault();
+      const inputValues = {
+        name: element.expenseNameInput.value,
+        amount: Number(element.expenseAmountInput.value),
+      };
+      expenseTracker.addExpense(inputValues);
+      saveExpenses();
+      updateSummary();
     }
-
-    const inputValues = {name: element.expenseNameInput.value, amount: element.expenseAmountInput.value};
-    expenseTracker.addExpense(inputValues);
-    saveExpenses();
   });
+}
+
+export function updateSummary() {
+  element.totalValue.textContent = `$${getTotal()}`;
+  element.averageValue.textContent = `$${getAverage()}`;
+
+  element.expensePlaceholder.hidden = expenseTracker.getExpenses().length > 0;
 }
