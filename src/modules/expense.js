@@ -31,6 +31,11 @@ class ExpenseTracker {
     return false;
   }
 
+  clearAllExpenses() {
+    this.expenses = [];
+    return true;
+  }
+
   editExpense(id, { name, amount }) {
     const expense = this.expenses.find((expense) => expense.id === id);
 
