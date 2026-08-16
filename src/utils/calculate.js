@@ -1,4 +1,4 @@
-import { expenseTracker } from '../modules/expense';
+import { expenseTracker } from '../modules/expense.js';
 
 export function getTotal() {
   return expenseTracker.getExpenses().reduce((sum, expense) => sum + expense.amount, 0);

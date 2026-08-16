@@ -1,4 +1,4 @@
-import { expenseTracker } from './expense';
+import { expenseTracker } from './expense.js';
 
 const STORAGE_KEY = 'expenses';
 
