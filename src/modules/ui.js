@@ -45,3 +45,31 @@ export function updateSummary() {
 
   element.expensePlaceholder.hidden = expenseTracker.getExpenses().length > 0;
 }
+
+export function renderExpenses() {
+  element.expenseList.innerHTML = '';
+
+  expenseTracker.getExpenses().forEach((expenseData) => {
+    const expense = document.createElement('li');
+    expense.classList.add('expense-item');
+
+    const expenseInfo = document.createElement('span');
+    expenseInfo.textContent = `${expenseData.name} - ${expenseData.amount}`;
+
+    const delBtn = document.createElement('button');
+    delBtn.classList.add('delBtn');
+    delBtn.type = 'button';
+    delBtn.textContent = 'Delete';
+
+    delBtn.addEventListener('click', () => {
+      expenseTracker.removeExpense(expenseData.id);
+      saveExpenses();
+      renderExpenses();
+    });
+
+    expense.append(expenseInfo, delBtn);
+    element.expenseList.appendChild(expense);
+  });
+
+  updateSummary();
+}
