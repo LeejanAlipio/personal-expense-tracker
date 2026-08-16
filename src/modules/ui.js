@@ -1,5 +1,5 @@
 import { expenseTracker } from './expense.js';
-import { saveExpenses, loadExpenses } from './storage.js';
+import { saveExpenses } from './storage.js';
 import { getAverage, getTotal } from '../utils/calculate.js';
 import { validateAmount, validateName } from '../utils/form-validation.js';
 
@@ -21,21 +21,23 @@ export function initValidation() {
   element.expenseAmountInput.addEventListener('input', validateAmount);
 
   element.expenseForm.addEventListener('submit', (event) => {
+    event.preventDefault();
     validateName();
     validateAmount();
 
     if (!element.expenseForm.checkValidity()) {
-      event.preventDefault();
-    } else {
-      event.preventDefault();
-      const inputValues = {
-        name: element.expenseNameInput.value,
-        amount: Number(element.expenseAmountInput.value),
-      };
-      expenseTracker.addExpense(inputValues);
-      saveExpenses();
-      updateSummary();
+      return;
     }
+
+    const inputValues = {
+      name: element.expenseNameInput.value,
+      amount: Number(element.expenseAmountInput.value),
+    };
+
+    expenseTracker.addExpense(inputValues);
+    saveExpenses();
+    element.expenseForm.reset();
+    renderExpenses();
   });
 }
 
