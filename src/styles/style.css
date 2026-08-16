@@ -99,11 +99,12 @@ main {
 }
 
 .expense-add-container .expense {
-  flex: 2;
+  flex: 1 0 1;
+  min-width: 0;
 }
 
 .expense-add-container .amount {
-  flex: 1;
+  flex: 1 0 1;
   min-width: 0;
 }
 
@@ -243,7 +244,7 @@ main {
 .error {
   color: red;
   font-size: 13px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 @media (max-width: 520px) {
