@@ -2,7 +2,7 @@ class Expense {
   constructor(name, amount, id) {
     this.name = name;
     this.amount = amount;
-    this.id = id || crypto.randomUUID();
+    this.id = id ?? crypto.randomUUID();
   }
 }
 
