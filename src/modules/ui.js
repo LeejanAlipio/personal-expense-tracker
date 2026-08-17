@@ -20,6 +20,12 @@ export function initValidation() {
   element.expenseNameInput.addEventListener('input', validateName);
   element.expenseAmountInput.addEventListener('input', validateAmount);
 
+  element.clearExpensesBtn.addEventListener('click', () => {
+    expenseTracker.clearAllExpenses();
+    saveExpenses();
+    renderExpenses();
+  });
+
   element.expenseForm.addEventListener('submit', (event) => {
     event.preventDefault();
     validateName();
