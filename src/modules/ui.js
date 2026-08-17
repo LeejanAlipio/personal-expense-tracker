@@ -56,7 +56,7 @@ export function renderExpenses() {
     expense.classList.add('expense-item');
 
     const expenseInfo = document.createElement('span');
-    expenseInfo.textContent = `${expenseData.name} - ${expenseData.amount}`;
+    expenseInfo.textContent = `${expenseData.name} - $${expenseData.amount}`;
 
     const delBtn = document.createElement('button');
     delBtn.classList.add('delBtn');
