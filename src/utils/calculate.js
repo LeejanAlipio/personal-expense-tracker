@@ -5,6 +5,8 @@ export function getTotal() {
 }
 
 export function getAverage() {
+  if (!getTotal()) return;
+
   const expenses = expenseTracker.getExpenses().length;
   const average = getTotal() / expenses;
   return formatAverage(average);

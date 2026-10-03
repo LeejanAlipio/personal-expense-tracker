@@ -49,7 +49,7 @@ export function initValidation() {
 
 export function updateSummary() {
   element.totalValue.textContent = `$${getTotal()}`;
-  element.averageValue.textContent = `$${getAverage()}`;
+  element.averageValue.textContent = `$${getAverage() || '0'}`;
 
   element.expensePlaceholder.hidden = expenseTracker.getExpenses().length > 0;
 }
